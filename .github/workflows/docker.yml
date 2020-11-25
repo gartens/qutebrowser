@@ -30,7 +30,8 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
       - uses: docker/build-push-action@v2
         with:
-          context: scripts/dev/ci/docker/
+          file: scripts/dev/ci/docker/Dockerfile
+          context: .
           tags: "qutebrowser/ci:${{ matrix.image }}"
           push: ${{ github.ref == 'refs/heads/master' }}
 
